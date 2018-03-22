@@ -39,7 +39,7 @@ def getChannelById(id):
 def get_youtubeApiService():
     return build('youtube', 'v3', developerKey='AIzaSyAKT1F_tqa8yWFXD70S9dhHpvz9GPGH9kI')
 
-def getChannelById(client, channelId):
+def getChannelByIdWithClient(client, channelId):
     response = client.channels().list(part='snippet,statistics', id=channelId).execute()
     title = response['items'][0]['snippet']['title']
     country = response['items'][0]['snippet']['country']

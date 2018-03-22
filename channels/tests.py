@@ -19,11 +19,11 @@ class youtubeDataApiTestCase(TestCase):
         ch = Channel.objects.get(id=length)
         self.assertEqual(ch.name, '阿神')
         self.assertEqual(ch.country, 'TW')
-
+#test the api of google client
 class youtubeDataApi2TestCase(TestCase):
     def setUp(self):
         client = youtube.get_youtubeApiService()
-        self.channelInfo = youtube.getChannelById(client, "UCnJEWsS5agXCkqIpyHC9Grg")
+        self.channelInfo = youtube.getChannelByIdWithClient(client, "UCnJEWsS5agXCkqIpyHC9Grg")
 
     def test_channelInfo_got_the_Info(self):
         self.assertEqual(self.channelInfo.getTitle(), '阿神')
